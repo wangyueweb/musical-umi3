@@ -30,6 +30,7 @@
     "yorkie": "^2.0.0"
   },
   "devDependencies": {
+    "js-cookie": "^2.2.1",
     "nprogress": "^0.2.0"
   }
 }

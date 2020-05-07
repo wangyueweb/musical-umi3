@@ -4,6 +4,12 @@ export default {
   'app.exception.description.403': '抱歉，你无权访问此页面',
   'app.exception.description.404': '抱歉，你访问的页面不存在',
   'app.exception.description.500': '抱歉，服务器出错了',
+  'Please input your username!': '请输入用户名!',
+  Username: '用户名',
+  'Please input your password!': '请输入密码!',
+  Password: '密码',
+  'Remember me': '记住我',
+  submit: '提交',
 
   APP_TITLE: 'umi 小中台',
   LOGOUT_BTN: '注销',
@@ -37,5 +43,5 @@ export default {
   USER_MANAGEMENT_MENU: '用户管理',
 
   // profile
-  PROFILE_TITLE: '个人信息'
-}
+  PROFILE_TITLE: '个人信息',
+};

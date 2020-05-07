@@ -1,10 +1,12 @@
 import React from 'react';
-import styles from './index.less';
 
-export default () => {
-  return (
-    <div>
-      <h1 className={styles.title}>Page index</h1>
-    </div>
-  );
+import { Redirect } from 'umi';
+
+function Home() {
+  return <Redirect to="/dashboard/analysis" />;
 }
+
+Home.requireSignin = false;
+Home.layout = 'BLANK';
+
+export default Home;

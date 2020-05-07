@@ -11,9 +11,6 @@ export interface DefaultSettings {
   fixSiderbar: boolean; // sticky siderbar
   title: string;
   pwa: boolean;
-  menu: {
-    disableLocal: boolean,
-  };
   // Your custom iconfont Symbol script Url
   // eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js
   // 注意：如果需要图标多色，Iconfont 图标项目里要进行批量去色处理
@@ -31,9 +28,6 @@ export default {
   autoHideHeader: false,
   fixSiderbar: false,
   colorWeak: false,
-  menu: {
-    locale: true,
-  },
   title: 'Ant Design Pro',
   pwa: false,
   iconfontUrl: '',

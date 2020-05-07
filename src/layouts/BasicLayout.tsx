@@ -15,7 +15,12 @@ export interface IBasicLayout {
   [key: string]: any;
 }
 const BasicLayout: React.FC<IBasicLayout> = props => {
-  const { children, loading, location: { pathname = '/' }, route: { routes }, } = props;
+  const {
+    children,
+    loading,
+    location: { pathname = '/' },
+    route: { routes },
+  } = props;
   // TODO : 这里需要做路由鉴权
 
   const { href } = window.location; // 浏览器地址栏中地址
@@ -28,17 +33,7 @@ const BasicLayout: React.FC<IBasicLayout> = props => {
       currHref = href; // 将新页面的 href 值赋值给 currHref
     }
   }
-  return (
-    // <TransitionGroup>
-    //   <CSSTransition key={pathname} classNames="fade" timeout={300}>
-    //     <div key={pathname} style={{ position: 'absolute', width: '100%', height: '100%' }}>
-          <div className={styles.normal}>
-            {children}
-          </div>
-    //     </div>
-    //   </CSSTransition>
-    // </TransitionGroup>
-  );
+  return <div className={styles.normal}>{children}</div>;
 };
 
 export default connect(({ loading }: ConnectState) => ({
