@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { Tabs } from 'antd';
+import { Form, Button, Input, Checkbox, Tooltip, Tabs } from 'antd'
 import { useModel, Redirect, useIntl, useLocation } from 'umi';
 import { isInvalidInitState, isNotEmpty, pick } from '@/helpers';
 
-import Login from '@/components/Login';
+import Login from './components/login';
 import styles from './Login.less';
 
 function LoginPage() {
@@ -34,15 +34,16 @@ function LoginPage() {
       <div id="bg-animate" className={styles.bgContainer}></div>
       <div className={styles.loginContainer}>
         {/* <Title /> */}
-        <Tabs defaultActiveKey="accountway" className={styles.signinContainer}>
+        {/* <Tabs defaultActiveKey="accountway" className={styles.signinContainer}>
           <Tabs.TabPane
             tab={formatMessage({ id: 'LOGIN_TAB_ACCOUNT' })}
-            key="accountway"
             className={styles.signinInnerContainer}
-          >
+          > */}
             {/* <AccountPane /> */}
-          </Tabs.TabPane>
-        </Tabs>
+
+            <Login/>
+          {/* </Tabs.TabPane>
+        </Tabs> */}
       </div>
       {/* <LangSwitch className={styles.lang} /> */}
     </>

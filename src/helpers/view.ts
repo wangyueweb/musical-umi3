@@ -14,9 +14,9 @@ export function destoryGlobalSpinner() {
 export function redirectToLogin(needRedirectBack: boolean) {
   clearAll()
   const { location } = window
-  if (location.pathname === '/login' || !needRedirectBack) {
-    location.href = '/login'
+  if (location.pathname === '/user/login' || !needRedirectBack) {
+    location.href = '/user/login'
     return
   }
-  location.href = `/login?redirectTo=${location.pathname}`
+  location.href = `/user/login?redirectTo=${location.pathname}`
 }

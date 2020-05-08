@@ -6,7 +6,4 @@ function Home() {
   return <Redirect to="/dashboard/analysis" />;
 }
 
-Home.requireSignin = false;
-Home.layout = 'BLANK';
-
 export default Home;

@@ -1,8 +1,6 @@
 import { IInvalidInitState, IUser } from '@/types';
 import { isString, isNotEmpty } from './helpers/object';
 
-console.log(2);
-
 export interface IAccessState {
   canReadDashboardAnalysis: boolean;
   canReadDashboardMonitor: boolean;
@@ -20,7 +18,7 @@ export default function(initState) {
   console.log(initState);
 
   if (isString(initState)) {
-    return initState as IInvalidInitState;
+    return initState;
   }
 
   const finalState = {

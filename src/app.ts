@@ -6,12 +6,10 @@ import { getToken } from '@/helpers';
 // powered by https://umijs.org/plugins/plugin-initial-state
 // IInvalidInitState will be used to redirect page in layout
 export function getInitialState() {
-  console.log('getInitialState', getToken());
+  console.log('app.ts', 'getInitialState', getToken());
   if (!getToken()) {
     Promise.resolve('LOGIN_REQUIRED');
   }
-
-  console.log(1113);
   return API('/user', {
     method: 'get',
   }).then(

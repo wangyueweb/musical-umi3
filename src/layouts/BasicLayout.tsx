@@ -1,41 +1,45 @@
-import React from 'react';
-import NProgress from 'nprogress';
-// import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { connect } from 'dva';
-import { ConnectState } from './../models/connect';
-import styles from './BasicLayout.less';
-import './nprogress.less';
+import React, { useEffect } from 'react'
+import { useAccess, Redirect, useModel } from 'umi'
 
-NProgress.configure({ showSpinner: false });
+// import { Exception404 } from '@/components'
+import { destoryGlobalSpinner, pick, isEmpty, clearAll } from '@/helpers'
+import { IEntryLayoutProps } from '@/types'
 
-let currHref = '';
+// import LayoutSelector from './options/LayoutSelector'
 
-export interface IBasicLayout {
-  loading: any;
-  [key: string]: any;
-}
-const BasicLayout: React.FC<IBasicLayout> = props => {
-  const {
-    children,
-    loading,
-    location: { pathname = '/' },
-    route: { routes },
-  } = props;
-  // TODO : 这里需要做路由鉴权
+export default function Layout({ children, location, route }: IEntryLayoutProps) {
+  console.count('Layout')
+  const accessState = useAccess()
 
-  const { href } = window.location; // 浏览器地址栏中地址
-  if (currHref !== href) {
-    // currHref 和 href 不一致时说明进行了页面跳转
-    NProgress.start(); // 页面开始加载时调用 start 方法
-    if (!loading.global) {
-      // loading.global 为 false 时表示加载完毕
-      NProgress.done(); // 页面请求完毕时调用 done 方法
-      currHref = href; // 将新页面的 href 值赋值给 currHref
-    }
+  console.log(accessState)
+  const { findMatchedRoute, signRequired, canAccess, width, height, routeCheck } = useModel('useAppModel', m =>
+    pick(m, 'findMatchedRoute', 'signRequired', 'canAccess', 'width', 'height', 'routeCheck')
+  )
+
+  const matchedRoute = findMatchedRoute(location.pathname, route.routes!)
+
+  useEffect(() => {
+    destoryGlobalSpinner()
+  }, [])
+
+  // 404
+  // if (isEmpty(matchedRoute)) {
+  //   return <Exception404 style={{ width, height }} />
+  // }
+
+  // validate attributes specified at route
+  routeCheck(matchedRoute!)
+
+  if (signRequired(matchedRoute!, accessState)) {
+    clearAll()
+    return <Redirect to={{ pathname: '/user/login', search: `?redirectTo=${location.pathname}` }} />
   }
-  return <div className={styles.normal}>{children}</div>;
-};
 
-export default connect(({ loading }: ConnectState) => ({
-  loading,
-}))(BasicLayout);
+  return (
+    // <LayoutSelector route={matchedRoute!} routes={route.routes!} canAccess={canAccess(matchedRoute!, accessState)}>
+      <div>
+        {children}
+      </div>
+    // </LayoutSelector>
+  )
+}
