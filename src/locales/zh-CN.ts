@@ -21,6 +21,7 @@ export default {
   // login
   LOGIN_TITLE: '登录',
   LOGIN_TAB_ACCOUNT: '账号密码登录',
+  LOGIN_TAB_MOBILE: '手机账号登录',
   LOGIN_ACCOUNT_REQUIRED_MSG: '请填写账号!',
   LOGIN_ACCOUNT_PLACEHOLDER: '账号：admin 或者 meimei.han',
   LOGIN_PASSWORD_REQUIRED_MSG: '请填写密码!',

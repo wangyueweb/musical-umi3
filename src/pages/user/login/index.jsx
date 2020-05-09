@@ -32,18 +32,24 @@ function LoginPage() {
   return (
     <>
       <div id="bg-animate" className={styles.bgContainer}></div>
-      <div className={styles.loginContainer}>
-        {/* <Title /> */}
-        {/* <Tabs defaultActiveKey="accountway" className={styles.signinContainer}>
+      <div className={styles.main}>
+        <Tabs defaultActiveKey="accountway" className={styles.signinContainer}>
           <Tabs.TabPane
             tab={formatMessage({ id: 'LOGIN_TAB_ACCOUNT' })}
             className={styles.signinInnerContainer}
-          > */}
-            {/* <AccountPane /> */}
-
+            key="account"
+          >
             <Login/>
-          {/* </Tabs.TabPane>
-        </Tabs> */}
+          </Tabs.TabPane>
+
+          <Tabs.TabPane
+            tab={formatMessage({ id: 'LOGIN_TAB_MOBILE' })}
+            className={styles.signinInnerContainer}
+            key="mobile"
+          >
+            2
+          </Tabs.TabPane>
+        </Tabs>
       </div>
       {/* <LangSwitch className={styles.lang} /> */}
     </>

@@ -14,7 +14,6 @@ export function getInitialState() {
     method: 'get',
   }).then(
     res => {
-      console.log(123213, res);
       if (res.success) {
         return res.data;
       }

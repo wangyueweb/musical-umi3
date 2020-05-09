@@ -1,4 +1,4 @@
-@import '~antd/es/style/themes/default.less';
+@import '~antd/lib/style/themes/default.less';
 
 .container {
   display: flex;
@@ -6,6 +6,10 @@
   height: 100vh;
   overflow: auto;
   background: @layout-body-background;
+  .content {
+    flex: 1;
+    padding: 32px 0;
+  }
 }
 
 .lang {
@@ -18,10 +22,7 @@
   }
 }
 
-.content {
-  flex: 1;
-  padding: 32px 0;
-}
+
 
 // @media (min-width: @screen-md-min) {
 //   .container {

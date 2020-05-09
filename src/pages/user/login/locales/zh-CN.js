@@ -1,4 +1,7 @@
 export default {
+  'app.login.tab-login-credentials': '账户密码登录',
+
+
   'user-login.login.userName': '用户名',
   'user-login.login.password': '密码',
   'user-login.login.message-invalid-credentials': '账户或密码错误（admin/ant.design）',

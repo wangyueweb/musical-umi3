@@ -32,7 +32,7 @@ export default function Layout({ children, location, route }: IEntryLayoutProps)
 
   if (signRequired(matchedRoute!, accessState)) {
     clearAll()
-    return <Redirect to={{ pathname: '/user/login', search: `?redirectTo=${location.pathname}` }} />
+    return <Redirect to={{ pathname: '/user/login/login2', search: `?redirectTo=${location.pathname}` }} />
   }
 
   return (
